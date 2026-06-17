@@ -14,3 +14,4 @@ class Solution:
             dfs(node.right, new_path)
         dfs(root, '')
         return self.total
+        
