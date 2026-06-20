@@ -14,3 +14,7 @@ class Solution:
             r_product *= nums[i]
 
         return result         
+
+
+        # tc = O(n)
+        # sc = O(1)
