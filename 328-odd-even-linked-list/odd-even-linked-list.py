@@ -8,24 +8,15 @@ class Solution:
         if not head or not head.next:
             return head
 
-        odds = []
-        evens = []
+        o = head
+        e = head.next
+        eHead = e
 
-        curr = head
-        isOdd = True
-        while curr:
-            if isOdd:
-                odds.append(curr)
-            else:
-                evens.append(curr)
-            isOdd = not isOdd
-            curr = curr.next
+        while e and e.next:
+            o.next = e.next
+            o = o.next
 
-        for i in range(len(odds)-1):
-            odds[i].next = odds[i + 1]
-        odds[-1].next = evens[0]
-
-        for i in range(len(evens) - 1):
-            evens[i].next = evens[i + 1]                 
-        evens[-1].next = None
-        return odds[0]      
+            e.next = o.next
+            e = e.next
+        o.next = eHead
+        return head        
